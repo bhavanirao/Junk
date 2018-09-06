@@ -1,9 +1,20 @@
 pipeline {
   agent any
   stages {
-    stage('Build/Print') {
+    stage('Build') {
       steps {
-        echo 'Man this is great'
+        echo 'Build the software'
+      }
+    }
+    stage('Test') {
+      steps {
+        sh 'sleep 5'
+        sh 'echo Tests Completed!'
+      }
+    }
+    stage('Publish Event') {
+      steps {
+        publishEvent simpleEvent('testingCompleted')
       }
     }
   }
