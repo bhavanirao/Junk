@@ -14,7 +14,9 @@ pipeline {
     }
     stage('Publish Event') {
       steps {
-        publishEvent simpleEvent('testingCompleted')
+        script {
+          publishEvent simpleEvent('testingCompleted')
+        }
       }
     }
   }
